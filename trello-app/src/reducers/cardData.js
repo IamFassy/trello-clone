@@ -58,7 +58,7 @@ export const cardData = createSlice({
 			);
 			const taskIndex = action.payload.taskIndex;
 			const tasks = state.cards[index].tasks;
-			tasks[index] = action.payload.task;
+			tasks[taskIndex] = action.payload.task;
 			state.cards[index].tasks = tasks;
 		},
 	},

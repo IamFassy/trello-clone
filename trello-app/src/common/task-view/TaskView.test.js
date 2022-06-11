@@ -90,7 +90,7 @@ test('update item in task', () => {
 	expect(
 		reducer(
 			previousState,
-			updateItemInTask({ id: 1, index: 0, task: 'Updated Item' })
+			updateItemInTask({ id: 1, taskIndex: 0, task: 'Updated Item' })
 		)
 	).toEqual(arr);
 });
