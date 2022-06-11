@@ -1,0 +1,7 @@
+@import '../../scss/variables';
+
+.card-container {
+	background-color: $background-color;
+	flex-grow: 1;
+	padding: 15px;
+}

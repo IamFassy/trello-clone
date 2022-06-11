@@ -1,0 +1,10 @@
+@import '../../scss/variables';
+
+.header-container {
+	background-color: $primary-color;
+	color: $text-primary;
+	padding: 15px;
+	h3 {
+		font-weight: 500;
+	}
+}
