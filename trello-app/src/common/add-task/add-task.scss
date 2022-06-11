@@ -1,0 +1,26 @@
+@import '../../scss/variables';
+
+.add-task {
+	display: flex;
+	align-items: center;
+	&__input-view {
+		input {
+			background: none;
+			border: none;
+			border-bottom: 1px solid $primary-color;
+			margin-right: 5px;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+	&__btn-view {
+		button {
+			background: none;
+			border: none;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}

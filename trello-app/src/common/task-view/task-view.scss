@@ -1,0 +1,22 @@
+@import '../../scss/variables';
+
+.task-view {
+	background-color: $white;
+	border-radius: 4px;
+	padding: 10px;
+	display: flex;
+	margin-bottom: 15px;
+	&__left-view {
+		width: 80%;
+		&-title {
+			font-size: 14px;
+		}
+		&-input {
+			background: none;
+			border: none;
+			outline: none;
+			width: 75%;
+			border-bottom: 1px solid $text-primary;
+		}
+	}
+}

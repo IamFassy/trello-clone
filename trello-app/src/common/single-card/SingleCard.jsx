@@ -1,18 +1,49 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import AddTask from '../add-task/AddTask';
+import { deleteCard, updateTitle } from '../../reducers/cardData';
 import './single-card.scss';
+import TaskView from '../task-view/TaskView';
 
-const SingleCard = ({ card = {} }) => {
+const SingleCard = ({ card = {}, totalLength = '' }) => {
+	const [title, setTitle] = useState(card.title);
+	const dispatch = useDispatch();
+
+	const handleTitle = (e) => {
+		setTitle(e.target.value);
+		dispatch(updateTitle({ id: card.id, title: e.target.value }));
+	};
+
+	const handleDelete = () => {
+		dispatch(deleteCard({ id: card.id }));
+	};
 	return (
 		<div className='single-card'>
-			<input className='single-card__title-holder' value={card.title} />
-			<div className='single-card__add-task'>
-				<input
-					className='single-card__add-task-input'
-					placeholder='Add Task'
-				/>
-				<FontAwesomeIcon icon='fa-solid fa-plus' />
-			</div>
+			<input
+				className='single-card__title-holder'
+				value={title}
+				onChange={handleTitle}
+				data-testid='title-name'
+			/>
+			{card.tasks.map((task, index) => {
+				return (
+					<TaskView
+						key={index}
+						id={card.id}
+						task={task}
+						index={index}
+					/>
+				);
+			})}
+			<AddTask id={card.id} />
+			<button
+				className='single-card__delete-btn'
+				disabled={totalLength < 2}
+				onClick={handleDelete}
+				data-testid='delete-card'
+			>
+				Delete
+			</button>
 		</div>
 	);
 };

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="single-card"
+  >
+    <input
+      class="single-card__title-holder"
+      data-testid="title-name"
+      value="Change Title"
+    />
+    <form
+      class="add-task"
+    >
+      <div
+        class="add-task__input-view"
+      >
+        <input
+          data-testid="task-name"
+          placeholder="Add Task"
+          value=""
+        />
+      </div>
+      <div
+        class="add-task__btn-view"
+      >
+        <button
+          class="icon-button "
+          data-testid="add-task"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus "
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </form>
+    <button
+      class="single-card__delete-btn"
+      data-testid="delete-card"
+      disabled=""
+    >
+      Delete
+    </button>
+  </div>
+</DocumentFragment>
+`;

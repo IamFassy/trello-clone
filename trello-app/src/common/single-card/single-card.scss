@@ -3,11 +3,13 @@
 .single-card {
 	background-color: $card-primary;
 	width: 200px;
+	height: fit-content;
 	border-radius: 4px;
-	height: 100px;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
+	margin-right: 20px;
+	margin-bottom: 20px;
 	&__title-holder {
 		text-align: center;
 		color: $text-primary;
@@ -16,19 +18,22 @@
 		border: none;
 		background: none;
 		padding: 5px;
+		margin-bottom: 10px;
 		&:focus {
-			background-color: #fff;
+			background-color: $white;
 		}
 	}
-	&__add-task {
-		display: flex;
-		&-input {
-			background: none;
-			border: none;
-			border-bottom: 1px solid $primary-color;
-			&:focus {
-				outline: none;
-			}
-		}
+	&__delete-btn {
+		background: none;
+		width: 40%;
+		margin: 0 auto;
+		margin-top: 20px;
+		border: 1px solid $danger-primary;
+		padding: 5px;
+		border-radius: 4px;
+		font-size: 12px;
+	}
+	&__delete-btn:hover {
+		cursor: pointer;
 	}
 }
