@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import AddTask from '../add-task/AddTask';
-import { deleteCard, updateTitle } from '../../reducers/cardData';
+import {
+	addItemToTask,
+	deleteCard,
+	updateTitle,
+} from '../../reducers/cardData';
 import './single-card.scss';
 import TaskView from '../task-view/TaskView';
 
@@ -14,11 +18,31 @@ const SingleCard = ({ card = {}, totalLength = '' }) => {
 		dispatch(updateTitle({ id: card.id, title: e.target.value }));
 	};
 
+	const handleDragOver = (e) => {
+		if (e.dataTransfer.types[0] === 'text/plain') {
+			e.preventDefault();
+		}
+	};
 	const handleDelete = () => {
 		dispatch(deleteCard({ id: card.id }));
 	};
+
+	const handleDrop = (e) => {
+		const dataJSON = e.dataTransfer.getData('text/plain');
+		let data;
+		try {
+			data = JSON.parse(dataJSON);
+		} catch {}
+		if (data && data.type === 'task' && data.id !== card.id) {
+			dispatch(addItemToTask({ id: card.id, task: data.taskName }));
+		}
+	};
 	return (
-		<div className='single-card'>
+		<div
+			className='single-card'
+			onDragOver={handleDragOver}
+			onDrop={handleDrop}
+		>
 			<input
 				className='single-card__title-holder'
 				value={title}

@@ -22,8 +22,26 @@ const TaskView = ({ task, index, id }) => {
 		);
 	};
 
+	const dragStart = (e) => {
+		const data = JSON.stringify({
+			type: 'task',
+			taskName: task,
+			id,
+		});
+		e.dataTransfer.setData('text/plain', data);
+	};
+
+	const handleDragEnd = (e) => {
+		e.dataTransfer.clearData();
+	};
+
 	return (
-		<div className='task-view'>
+		<div
+			className='task-view'
+			draggable
+			onDragStart={dragStart}
+			onDragEnd={handleDragEnd}
+		>
 			<div className='task-view__left-view'>
 				{!inputView ? (
 					<p className='task-view__left-view-title'>{task}</p>
